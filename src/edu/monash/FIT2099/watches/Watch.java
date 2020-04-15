@@ -4,16 +4,25 @@ import edu.monash.FIT2099.counters.*;
 
 public abstract class Watch {
 	
-    private ArrayList<Counter> counters;
+    public static final int MAX_HOURS = 24;
+	public static final int MAX_SECONDS = 60;
+	public static final int MAX_MINUTES = 60;
+	public static final int MAX_MILLISECONDS = 1000;
+	
+	private ArrayList<Counter> counters;
 	
     protected Watch() {
     	counters = new ArrayList<Counter>();
     }
     
 	public void display() {
+		String prefix = "";
 		for (Counter thisCounter: counters) {
-			System.out.println(String.format("%02d", thisCounter.getValue()));
+			System.out.print(prefix);
+			System.out.print(String.format("%02d", thisCounter.getValue()));
+			prefix = ":";
 		}
+		System.out.println();
 	}
 	
 	protected void addCounter(Counter newCounter) {

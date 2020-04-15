@@ -7,8 +7,10 @@ public class Watch2 extends Watch {
 	private MaxCounter hours;
 
 	public Watch2() {
-		minutes = new MaxCounter(60);
-		hours = new MaxCounter(24);
+		minutes = new MaxCounter(Watch.MAX_MINUTES);
+		this.addCounter(minutes);
+		hours = new MaxCounter(Watch.MAX_HOURS);
+		this.addCounter(hours);
 	}
 
 	public void tick() {
@@ -17,13 +19,4 @@ public class Watch2 extends Watch {
 			hours.increment();
 		}
 	}
-
-//	public void display() {
-//		System.out.println(
-//				String.format("%02d", hours.getValue())
-//				+ ":"
-//				+ String.format("%02d", minutes.getValue())
-//		);
-//	}
-	
 }
