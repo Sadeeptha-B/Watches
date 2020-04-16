@@ -9,23 +9,25 @@ public abstract class Watch {
 	public static final int MAX_MINUTES = 60;
 	public static final int MAX_MILLISECONDS = 1000;
 	
-	private ArrayList<Counter> counters;
+	private ArrayList<MaxCounter> counters;
 	
     protected Watch() {
-    	counters = new ArrayList<Counter>();
+    	counters = new ArrayList<MaxCounter>();
     }
     
 	public void display() {
 		String prefix = "";
-		for (Counter thisCounter: counters) {
+		for (MaxCounter thisCounter: counters) {
+			double fieldWidth = Math.ceil(Math.log10(thisCounter.getMax()));
+			String fieldFormat = "%0" + String.format("%.0f", fieldWidth) + "d";
 			System.out.print(prefix);
-			System.out.print(String.format("%02d", thisCounter.getValue()));
+			System.out.print(String.format(fieldFormat, thisCounter.getValue()));
 			prefix = ":";
 		}
 		System.out.println();
 	}
 	
-	protected void addCounter(Counter newCounter) {
+	protected void addCounter(MaxCounter newCounter) {
 		counters.add(newCounter);
 	}
 	

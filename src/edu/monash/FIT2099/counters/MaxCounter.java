@@ -15,5 +15,7 @@ public class MaxCounter extends Counter {
 		}
 	}
 	
-	
+	public int getMax() {
+		return max;
+	}
 }

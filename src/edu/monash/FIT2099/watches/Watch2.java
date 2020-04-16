@@ -7,10 +7,10 @@ public class Watch2 extends Watch {
 	private MaxCounter hours;
 
 	public Watch2() {
-		minutes = new MaxCounter(Watch.MAX_MINUTES);
-		this.addCounter(minutes);
 		hours = new MaxCounter(Watch.MAX_HOURS);
 		this.addCounter(hours);
+		minutes = new MaxCounter(Watch.MAX_MINUTES);
+		this.addCounter(minutes);
 	}
 
 	public void tick() {
