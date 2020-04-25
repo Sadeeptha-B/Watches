@@ -18,10 +18,11 @@ public abstract class Watch {
 	public void display() {
 		String prefix = "";
 		for (MaxCounter thisCounter: counters) {
-			double fieldWidth = Math.ceil(Math.log10(thisCounter.getMax()));
-			String fieldFormat = "%0" + String.format("%.0f", fieldWidth) + "d";
-			System.out.print(prefix);
-			System.out.print(String.format(fieldFormat, thisCounter.getValue()));
+//			double fieldWidth = Math.ceil(Math.log10(thisCounter.getMax()));
+//			String fieldFormat = "%0" + String.format("%.0f", fieldWidth) + "d";
+//			System.out.print(prefix);
+//			System.out.print(String.format(fieldFormat, thisCounter.getValue()));
+			System.out.print(prefix + thisCounter);
 			prefix = ":";
 		}
 		System.out.println();
@@ -36,9 +37,6 @@ public abstract class Watch {
 	public void testWatch(int numTicks) {
 		for (int i = 0; i < numTicks; i++) {
 			display();
-			
-			//Method call does not specify message receiver
-		    //Hence, method call is attached to the instance
 			tick();
 		}	
 	}

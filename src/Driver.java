@@ -12,7 +12,7 @@ public class Driver {
 		
 		System.out.println("#################");
 		for (int i = 0; i < watches.length; i++) {
-			System.out.println("Testing watch " + (i + 1));
+			System.out.println("Testing " + watches[i].getClass().getSimpleName());
 			
 			watches[i].testWatch(200);
 			System.out.println("#################");
